@@ -15,7 +15,6 @@ setMoves(int number){
 };
 
 Movement(){
-    CollisionCheck();                       //for one or more penguins
     setMoves(getMoves() - 1);
     printf("Movement here\n");
 };
