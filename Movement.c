@@ -2,19 +2,19 @@
 
 Moves = 0;
 
-getMoves(){
+int getMoves(){
     return Moves;
 };
 
-defineMoves(){
+void defineMoves(){
     scanf("%d", &Moves);
 }
 
-setMoves(int number){
+void setMoves(int number){
     Moves = number;
 };
 
-Movement(){
+void Movement(){
     setMoves(getMoves() - 1);
     printf("Movement here\n");
 };

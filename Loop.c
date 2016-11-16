@@ -2,12 +2,12 @@
 
 phase = PLACEMENT;
 
-setPhase(char *P){
+void setPhase(char *P){
     if(strcmp(P, "movement") == 0) phase = MOVEMENT;
     if(strcmp(P, "placement") == 0) phase = PLACEMENT;
 }
 
-Loop(){                                        //during one round we place or move penguins
+void Loop(){                                        //during one round we place or move penguins
     //GetCommands();
     if(phase == PLACEMENT){
         Placement();

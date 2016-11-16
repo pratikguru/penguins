@@ -1,5 +1,5 @@
 #include "Collisions.h"
 
-CollisionCheck(){
+void CollisionCheck(){
     printf("Collision checking here\n");
 };

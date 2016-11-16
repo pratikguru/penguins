@@ -1,28 +1,28 @@
 #include "Init.h"
 #include "FileHandler.h"
 
-Init(char *Phase, char Penguins, char *InBoard, char *OutBoard) {
+void Init(char *Phase, char *Penguins, char *input, char *output) {
     Penguins -= '0';            //char to int conversion
     setPenguins(Penguins);
     setMoves(5);                //will be taken from the board
     setPhase(Phase);
     if(getPenguins() > 0) running = true;
-    input = fopen(InBoard, "r");
-    output = fopen(OutBoard, "w");
+    //input = fopen(InBoard, "r");
+    //output = fopen(OutBoard, "w");
 };
 
-definePenguins(){
+void definePenguins() {
     scanf("%d", &penguins);
 };
 
-getPenguins(){
+int getPenguins(){
     return penguins;
 }
 
-setPenguins(int number){
+void setPenguins(int number){
     penguins = number;
 }
 
-setRunning(bool Running){
+void setRunning(bool Running){
     running = Running;
 }

@@ -17,7 +17,6 @@ set(SOURCE_FILES
     Movement.h
     Placement.c
     Placement.h
-    somth.c
-    somth.h)
+        )
 
 add_executable(app ${SOURCE_FILES})
