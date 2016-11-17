@@ -1,10 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
-
 #include "Init.h"
 #include "Loop.h"
-#include "Movement.h"
-#include "Placement.h"
 
 int main(int argc, char *argv[])
 {

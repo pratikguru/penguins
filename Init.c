@@ -9,6 +9,9 @@ void Init(char *Phase, char *Penguins, char *input, char *output) {
     if(getPenguins() > 0) running = true;
     //input = fopen(InBoard, "r");
     //output = fopen(OutBoard, "w");
+
+    boardLoad();
+    boardPrint(board);
 };
 
 void definePenguins() {
