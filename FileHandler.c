@@ -2,6 +2,41 @@
 #include <string.h>
 #include <time.h>
 
+void scoreLoad(void *filename){
+    int t[10];
+    int i, p;
+    char temp[1];
+    char Directory[64];
+    strcpy(Directory, "./");
+    strcat(Directory, filename);
+    input = fopen(Directory, "r");
+    p = 0;
+    i = 0;
+    while(temp[0] != ';'){
+        fscanf(input, "%c", temp);
+        if(temp[0] == ',' || temp[0] == ';') {
+            int j;
+            for(j = 0; j < i; j++){
+                score[p] *= 10;
+                score[p] += t[j];
+            }
+            p++;
+            i = 0;
+            continue;
+        }
+        t[i] = temp[0] - '0';
+        i++;
+    }
+    fclose(input);
+}
+
+void scorePrint(){
+    int i;
+    for(i = 0; i < NR_OF_PLAYERS; i++){
+        printf("P%d score:%d\n", i, score[i]);
+    }
+    printf("\n");
+}
 
 void boardPrint() {
     int i, j;
@@ -21,7 +56,7 @@ void boardPrint() {
         for (j = 0; j < BOARD_SIZE_Y; ++j) {
 
             if ((j == 0) && (i % 2))
-                printf("\t");
+                printf("    ");
 
             if (board[i][j] == 0)
                 printf("        ");
@@ -34,7 +69,7 @@ void boardPrint() {
         for (j = 0; j < BOARD_SIZE_Y; ++j) {
 
             if ((j == 0) && (i % 2))
-                printf("\t");
+                printf("    ");
 
             if (board[i][j] == 0)
                 printf("\t\t");
@@ -45,13 +80,12 @@ void boardPrint() {
 
         }
 
-        printf("\n");
 
         printf("\t");
         for (j = 0; j < BOARD_SIZE_Y; ++j) {
 
             if ((j == 0) && (i % 2))
-                printf("\t");
+                printf("    ");
 
             if (board[i][j] == 0)
                 printf("        ");
@@ -73,7 +107,7 @@ void boardRandom() {
 }
 
 
-void boardLoad(char *filename){
+void boardLoad(void *filename){
     int i, j;
     char temp;
     char Directory[64];
@@ -99,4 +133,5 @@ void boardLoad(char *filename){
         board[i][j] = (temp - '0');
         j++;
     }
+    fclose(input);
 }

@@ -7,6 +7,8 @@ void Init(char *Phase, char *Penguins, char *input, char *output) {
     setMoves(5);                //will be taken from the board
     setPhase(Phase);
     boardLoad(input);
+    scoreLoad(input);
+    scorePrint();
     boardPrint();
 
     if(getPenguins() > 0) running = true;
