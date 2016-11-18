@@ -1,4 +1,5 @@
 #include "FileHandler.h"
+#include <string.h>
 #include <time.h>
 
 
@@ -61,57 +62,41 @@ void boardPrint() {
     }
 }
 
-int boardLoad() {
+void boardRandom() {
     int i, j;
     srand(time(NULL));
-    //creates an example of a board
-    /*board[0][0] = 2;
-    board[0][1] = 1;
-    board[0][2] = 1;
-    board[0][3] = 3;
-    board[0][4] = 1;
-    board[0][5] = 2;
-
-    board[1][0] = 3;
-    board[1][1] = 1;
-    board[1][2] = 2;
-    board[1][3] = 1;
-    board[1][4] = 2;
-    board[1][5] = 1;
-
-    board[2][0] = 2;
-    board[2][1] = 2;
-    board[2][2] = 1;
-    board[2][3] = 3;
-    board[2][4] = 1;
-    board[2][5] = 2;
-
-    board[3][0] = 1;
-    board[3][1] = 3;
-    board[3][2] = 1;
-    board[3][3] = 2;
-    board[3][4] = 3;
-    board[3][5] = 1;
-
-    board[4][0] = 3;
-    board[4][1] = 3;
-    board[4][2] = 2;
-    board[4][3] = 4;
-    board[4][4] = 10;
-    board[4][5] = 2;
-
-    board[5][0] = 1;
-    board[5][1] = 2;
-    board[5][2] = 5;
-    board[5][3] = 3;
-    board[5][4] = 2;
-    board[5][5] = 1;*/
     for (i = 0; i < BOARD_SIZE_Y; i++) {
-        for (int j = 0; j < BOARD_SIZE_X; ++j) {
-            board[i][j] = rand()%6;
+        for (j = 0; j < BOARD_SIZE_X; ++j) {
+            board[i][j] = rand() % 6;
         }
     }
+}
 
-    return 0;
 
+void boardLoad(char *filename){
+    int i, j;
+    char temp;
+    char Directory[64];
+    strcpy(Directory, "./");
+    strcat(Directory, filename);
+    input = fopen(Directory, "r");
+    i = 0;
+    j = 0;
+    //ignores score in file reading
+    while(temp != ';'){
+        fscanf(input, "%c", &temp);
+    }
+    fscanf(input, "%c", &temp);
+
+    while(fscanf(input, "%c", &temp) != EOF){
+        if(temp == ',') continue;
+        if(temp == ';'){
+            i++;
+            j = 0;
+            fscanf(input, "%c", &temp);
+            continue;
+        }
+        board[i][j] = (temp - '0');
+        j++;
+    }
 }

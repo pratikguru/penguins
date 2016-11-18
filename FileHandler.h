@@ -9,8 +9,9 @@
 
 FILE *input, *output;
 
-int boardLoad();
+void boardRandom();
 void boardPrint();
+void boardLoad(char *filename);
 
 int board[BOARD_SIZE_X][BOARD_SIZE_Y];
 

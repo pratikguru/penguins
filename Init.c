@@ -6,12 +6,12 @@ void Init(char *Phase, char *Penguins, char *input, char *output) {
     setPenguins(Penguins);
     setMoves(5);                //will be taken from the board
     setPhase(Phase);
+    boardLoad(input);
+    boardPrint();
+
     if(getPenguins() > 0) running = true;
     //input = fopen(InBoard, "r");
     //output = fopen(OutBoard, "w");
-
-    boardLoad();
-    boardPrint(board);
 };
 
 void definePenguins() {
