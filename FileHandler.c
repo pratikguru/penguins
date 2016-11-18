@@ -33,7 +33,7 @@ void scoreLoad(void *filename){
 void scorePrint(){
     int i;
     for(i = 0; i < NR_OF_PLAYERS; i++){
-        printf("P%d score:%d\n", i, score[i]);
+        printf("P%d score:%d\n ", i, score[i]);
     }
     printf("\n");
 }
@@ -61,7 +61,7 @@ void boardPrint() {
             if (board[i][j] == 0)
                 printf("        ");
             else
-                printf(" /¯¯¯\\  ");
+                printf(" /   \\  ");
         }
         printf("\n");
 

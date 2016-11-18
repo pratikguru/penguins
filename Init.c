@@ -8,8 +8,6 @@ void Init(char *Phase, char *Penguins, char *input, char *output) {
     setPhase(Phase);
     boardLoad(input);
     scoreLoad(input);
-    scorePrint();
-    boardPrint();
 
     if(getPenguins() > 0) running = true;
     //input = fopen(InBoard, "r");
