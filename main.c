@@ -19,5 +19,5 @@ int main(int argc, char *argv[])
     while(running){
         Loop();
     }
-    return argc;
+    return 0;
 }
