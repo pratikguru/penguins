@@ -72,7 +72,7 @@ void boardPrint() {
                 printf("    ");
 
             if (board[i][j] == 0)
-                printf("\t\t");
+                printf("        ");
             else if (board[i][j] > 3)
                 printf("| P %d | ", (board[i][j]) - 3);
             else
@@ -80,6 +80,7 @@ void boardPrint() {
 
         }
 
+        printf("\n");
 
         printf("\t");
         for (j = 0; j < BOARD_SIZE_Y; ++j) {
