@@ -26,7 +26,7 @@ void boardPrint() {
             if (board[i][j] == 0)
                 printf("        ");
             else
-                printf(" /⎺⎺⎺\\  ");
+                printf(" /¯¯¯\\  ");
         }
         printf("\n");
 
@@ -56,7 +56,7 @@ void boardPrint() {
             if (board[i][j] == 0)
                 printf("        ");
             else
-                printf(" \\⎽⎽⎽/  ");
+                printf(" \\___/  ");
         }
         printf("\n");
     }
