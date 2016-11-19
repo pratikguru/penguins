@@ -3,30 +3,20 @@
 #include <time.h>
 
 void scoreLoad(void *filename){
-    int t[10];
-    int i, p;
-    char temp[1];
+    int player;
+    int temp[1];
+    char tmp[1];
     char Directory[64];
     strcpy(Directory, "./");
     strcat(Directory, filename);
     input = fopen(Directory, "r");
-    p = 0;
-    i = 0;
-    while(temp[0] != ';'){
-        fscanf(input, "%c", temp);
-        if(temp[0] == ',' || temp[0] == ';') {
-            int j;
-            for(j = 0; j < i; j++){
-                score[p] *= 10;
-                score[p] += t[j];
-            }
-            p++;
-            i = 0;
-            continue;
-        }
-        t[i] = temp[0] - '0';
-        i++;
-    }
+    player = 0;
+    do{
+        fscanf(input, "%d", temp);
+        score[player] = temp[0];
+        player++;
+        fscanf(input, "%c", tmp);
+    }while(tmp[0] != ';');
     fclose(input);
 }
 
